@@ -1,1 +1,695 @@
-*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f5f5f5;color:#171717}nav{background:#111;color:#fff;padding:16px 5%;display:flex;gap:18px;align-items:center;flex-wrap:wrap}nav b{font-size:22px;margin-right:auto}nav a{color:#fff;text-decoration:none}.wrap{max-width:1050px;margin:30px auto;padding:0 18px}h1{margin-bottom:8px}.muted{color:#666}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}.card,form.panel{background:#fff;border:1px solid #ddd;border-radius:10px;padding:18px;margin:14px 0}.card h2{margin-top:0}label{display:block;font-weight:bold;margin:12px 0 5px}input,select,textarea{width:100%;padding:10px;border:1px solid #aaa;border-radius:6px;background:#fff}button,.btn{display:inline-block;background:#111;color:#fff;border:0;border-radius:6px;padding:10px 14px;margin-top:10px;text-decoration:none;cursor:pointer}.btn.secondary{background:#555}.danger{background:#8b0000}.ok,.error{padding:12px;border:1px solid;border-radius:7px;margin:12px 0}.ok{background:#eef8ee}.error{background:#fff0f0}.row{display:flex;gap:10px;flex-wrap:wrap}.row>*{flex:1;min-width:160px}table{width:100%;border-collapse:collapse;background:#fff}th,td{text-align:left;padding:10px;border-bottom:1px solid #ddd;vertical-align:top}.badge{border:1px solid #999;border-radius:20px;padding:3px 8px;font-size:12px;display:inline-block}@media(max-width:650px){nav{padding:13px 18px}table{font-size:13px}.wrap{margin-top:18px}th,td{padding:7px}}
+/* =========================================
+   DRIVEPLAN
+   Kleuren: wit, donkerblauw en goud
+========================================= */
+
+
+/* =========================================
+   ALGEMENE INSTELLINGEN
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    /* Donkerblauw */
+    --blue-dark: #081b33;
+    --blue: #123a63;
+    --blue-light: #edf3f9;
+
+    /* Goud */
+    --gold: #c6a15b;
+    --gold-dark: #9b7838;
+    --gold-light: #faf5e9;
+
+    /* Basis */
+    --white: #ffffff;
+    --background: #f5f6f8;
+
+    /* Tekst */
+    --text: #172033;
+    --muted: #687385;
+
+    /* Randen */
+    --border: #e0e4e9;
+
+    /* Foutkleur */
+    --danger: #b42318;
+}
+
+
+/* =========================================
+   BODY
+========================================= */
+
+body {
+    margin: 0;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: var(--background);
+    color: var(--text);
+}
+
+
+/* =========================================
+   NAVIGATIE
+========================================= */
+
+nav {
+    max-width: 1450px;
+
+    margin: 20px auto;
+    padding: 14px 22px;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+    border-radius: 16px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    box-shadow:
+        0 6px 25px rgba(8, 27, 51, 0.06);
+}
+
+
+/* DrivePlan naam */
+nav b {
+    margin-right: auto;
+
+    display: flex;
+    align-items: center;
+
+    color: var(--blue-dark);
+
+    font-size: 23px;
+    font-weight: 700;
+}
+
+
+/* Klein DrivePlan logo */
+nav b::before {
+    content: "D";
+
+    width: 40px;
+    height: 40px;
+
+    margin-right: 11px;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    background: var(--blue-dark);
+    color: var(--gold);
+
+    border: 2px solid var(--gold);
+    border-radius: 10px;
+
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+/* Navigatie links */
+nav a {
+    padding: 10px 13px;
+
+    color: var(--text);
+
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition: 0.2s;
+}
+
+
+/* Navigatie hover */
+nav a:hover {
+    background: var(--gold-light);
+    color: var(--blue-dark);
+}
+
+
+/* =========================================
+   HOOFDINHOUD
+========================================= */
+
+.wrap {
+    max-width: 1180px;
+
+    margin: 55px auto;
+    padding: 0 24px;
+}
+
+
+/* Grote titels */
+h1 {
+    max-width: 850px;
+
+    margin: 0 0 15px;
+
+    color: var(--blue-dark);
+
+    font-size: clamp(38px, 5vw, 62px);
+    line-height: 1.05;
+    letter-spacing: -2px;
+}
+
+
+/* Kleinere titels */
+h2 {
+    color: var(--blue-dark);
+}
+
+
+/* Rustige tekst */
+.muted {
+    max-width: 680px;
+
+    color: var(--muted);
+
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   HERO / BOVENSTE DASHBOARD
+========================================= */
+
+.hero {
+    max-width: 900px;
+
+    padding: 35px 0 30px;
+}
+
+
+/* Kleine gouden tekst boven titels */
+.hero-label,
+.card-label {
+    margin: 0 0 10px;
+
+    color: var(--gold-dark);
+
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1.6px;
+}
+
+
+/* Knoppen in hero */
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    margin-top: 24px;
+}
+
+
+/* =========================================
+   DASHBOARD GRID
+========================================= */
+
+.grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(260px, 1fr));
+
+    gap: 18px;
+
+    margin-top: 35px;
+}
+
+
+/* =========================================
+   KAARTEN
+========================================= */
+
+.card,
+form.panel {
+    position: relative;
+
+    margin: 18px 0;
+    padding: 24px;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+    border-radius: 16px;
+
+    box-shadow:
+        0 6px 24px rgba(8, 27, 51, 0.05);
+}
+
+
+/* Gouden accent boven dashboardkaarten */
+.card {
+    border-top: 3px solid var(--gold);
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+
+/* Kaart hover */
+.card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 32px rgba(8, 27, 51, 0.09);
+}
+
+
+/* Titel in kaart */
+.card h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+
+/* =========================================
+   FORMULIEREN
+========================================= */
+
+label {
+    display: block;
+
+    margin: 15px 0 6px;
+
+    color: var(--blue-dark);
+
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+/* Invoervelden */
+input,
+select,
+textarea {
+    width: 100%;
+
+    padding: 12px 13px;
+
+    background: var(--white);
+    color: var(--text);
+
+    border: 1px solid #cfd5dd;
+    border-radius: 8px;
+
+    font: inherit;
+
+    transition: 0.2s;
+}
+
+
+/* Klik op invoerveld */
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 3px solid var(--gold-light);
+
+    border-color: var(--gold);
+}
+
+
+/* =========================================
+   KNOPPEN
+========================================= */
+
+button,
+.btn {
+    display: inline-block;
+
+    margin-top: 10px;
+    padding: 12px 18px;
+
+    background: var(--blue-dark);
+    color: var(--white);
+
+    border: 1px solid var(--blue-dark);
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s,
+        color 0.2s,
+        border-color 0.2s,
+        transform 0.2s;
+}
+
+
+/* Hoofdknop hover */
+button:hover,
+.btn:hover {
+    background: var(--gold);
+    color: var(--blue-dark);
+
+    border-color: var(--gold);
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================
+   TWEEDE KNOP
+========================================= */
+
+.btn.secondary,
+button.secondary {
+    background: var(--white);
+    color: var(--blue-dark);
+
+    border: 1px solid #ccd3dc;
+}
+
+
+/* Tweede knop hover */
+.btn.secondary:hover,
+button.secondary:hover {
+    background: var(--gold-light);
+    color: var(--blue-dark);
+
+    border-color: var(--gold);
+}
+
+
+/* =========================================
+   VERWIJDERKNOP
+========================================= */
+
+button.danger,
+.danger {
+    background: var(--danger);
+    color: var(--white);
+
+    border-color: var(--danger);
+}
+
+
+button.danger:hover,
+.danger:hover {
+    background: #8f1b13;
+    color: var(--white);
+
+    border-color: #8f1b13;
+}
+
+
+/* =========================================
+   SUCCES- EN FOUTMELDINGEN
+========================================= */
+
+.ok,
+.error {
+    margin: 15px 0;
+    padding: 14px 16px;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+}
+
+
+/* Succes */
+.ok {
+    background: #edf8f1;
+    color: #17663a;
+
+    border: 1px solid #b8dfc5;
+}
+
+
+/* Fout */
+.error {
+    background: #fff1f0;
+    color: #9b241b;
+
+    border: 1px solid #f1c0bc;
+}
+
+
+/* =========================================
+   FORMULIER VELDEN NAAST ELKAAR
+========================================= */
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 14px;
+}
+
+
+.row > * {
+    flex: 1;
+
+    min-width: 180px;
+}
+
+
+/* =========================================
+   TABELLEN
+========================================= */
+
+table {
+    width: 100%;
+
+    margin-top: 22px;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+    border-radius: 14px;
+
+    border-collapse: separate;
+    border-spacing: 0;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 6px 22px rgba(8, 27, 51, 0.04);
+}
+
+
+/* Tabel cellen */
+th,
+td {
+    padding: 13px;
+
+    text-align: left;
+    vertical-align: top;
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+/* Tabel titel */
+th {
+    background: var(--blue-dark);
+    color: var(--white);
+
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+/* Gouden lijn onder tabelkop */
+tr:first-child th {
+    border-bottom: 3px solid var(--gold);
+}
+
+
+/* Laatste rij geen lijn */
+tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* Rij hover */
+tr:hover td {
+    background: #fafbfc;
+}
+
+
+/* =========================================
+   STATUS BADGE
+========================================= */
+
+.badge {
+    display: inline-block;
+
+    padding: 5px 10px;
+
+    background: var(--gold-light);
+    color: var(--gold-dark);
+
+    border: 1px solid #e2ce98;
+    border-radius: 20px;
+
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+/* =========================================
+   LOGIN / FORM PANEL
+========================================= */
+
+form.panel {
+    max-width: 760px;
+
+    border-top: 3px solid var(--blue-dark);
+}
+
+
+/* =========================================
+   EXTRA GOUDEN DETAIL
+========================================= */
+
+.hero::before {
+    content: "";
+
+    display: block;
+
+    width: 55px;
+    height: 4px;
+
+    margin-bottom: 20px;
+
+    background: var(--gold);
+
+    border-radius: 10px;
+}
+
+
+/* =========================================
+   SCROLLBAR
+========================================= */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f2f4;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #b5bdc7;
+
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--blue);
+}
+
+
+/* =========================================
+   MOBIELE WEERGAVE
+========================================= */
+
+@media (max-width: 750px) {
+
+    nav {
+        margin: 10px;
+        padding: 13px 15px;
+
+        border-radius: 13px;
+
+        flex-wrap: wrap;
+    }
+
+
+    nav b {
+        width: 100%;
+
+        margin-bottom: 6px;
+    }
+
+
+    nav a {
+        padding: 8px;
+
+        font-size: 13px;
+    }
+
+
+    .wrap {
+        margin: 30px auto;
+
+        padding: 0 16px;
+    }
+
+
+    h1 {
+        font-size: 38px;
+
+        letter-spacing: -1px;
+    }
+
+
+    .hero {
+        padding-top: 20px;
+    }
+
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+
+    .hero-actions .btn {
+        width: 100%;
+
+        text-align: center;
+    }
+
+
+    .row {
+        flex-direction: column;
+    }
+
+
+    table {
+        display: block;
+
+        overflow-x: auto;
+
+        font-size: 13px;
+    }
+
+
+    th,
+    td {
+        padding: 9px;
+    }
+
+}
